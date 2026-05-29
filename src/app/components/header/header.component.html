@@ -1,0 +1,19 @@
+<header class="header">
+  <div aria-label="Library sections" class="header__switcher">
+    <app-button
+      [active]="activeView() === 'photos'"
+      variant="secondary"
+      (pressed)="goToPhotos()"
+    >
+      Photos
+    </app-button>
+
+    <app-button
+      [active]="activeView() === 'favorites'"
+      variant="secondary"
+      (pressed)="goToFavorites()"
+    >
+      Favorites
+    </app-button>
+  </div>
+</header>

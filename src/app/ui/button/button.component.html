@@ -1,0 +1,26 @@
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>
+
+@if (variant() === 'primary') {
+  <button
+    mat-flat-button
+    [disabled]="disabled()"
+    [type]="type()"
+    class="app-button app-button--primary"
+    (click)="onClick()"
+  >
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </button>
+} @else {
+  <button
+    mat-stroked-button
+    [disabled]="disabled()"
+    [type]="type()"
+    class="app-button app-button--secondary"
+    [class.app-button--active]="active()"
+    (click)="onClick()"
+  >
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </button>
+}

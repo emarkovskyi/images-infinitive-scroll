@@ -1,0 +1,137 @@
+@use '@angular/material' as mat;
+
+$font-body: 'Inter, "Segoe UI", sans-serif';
+$font-brand: '"Space Grotesk", Inter, "Segoe UI", sans-serif';
+
+$default-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$rose-palette,
+    use-system-variables: true,
+  ),
+  typography: (
+    plain-family: $font-body,
+    brand-family: $font-brand,
+    use-system-variables: true,
+    regular-weight: 400,
+    medium-weight: 500,
+    bold-weight: 700,
+  ),
+  density: (
+    scale: 0,
+  ),
+));
+
+$sunrise-preview-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$orange-palette,
+    tertiary: mat.$violet-palette,
+    use-system-variables: true,
+  ),
+  typography: (
+    plain-family: $font-body,
+    brand-family: $font-brand,
+    use-system-variables: true,
+    regular-weight: 400,
+    medium-weight: 500,
+    bold-weight: 700,
+  ),
+  density: (
+    scale: 0,
+  ),
+));
+
+// Theme authoring rules:
+// 1. Add new brand tokens here so Material and custom components stay aligned.
+// 2. Custom component styles should consume only the `--app-*` semantic variables below.
+// 3. Additional runtime themes can be added by reusing `theme-scope` under `.theme-*`.
+@mixin theme-scope($theme) {
+  @include mat.all-component-themes($theme);
+  @include mat.system-level-colors($theme);
+  @include mat.system-level-typography($theme);
+  @include mat.system-level-elevation($theme);
+  @include mat.system-level-shape($theme);
+  @include mat.system-level-state($theme);
+
+  // Define smaller shared shape values
+  --mat-sys-corner-small: 0px;
+  --mat-sys-corner-medium: 0px;
+  --mat-sys-corner-large: 0px;
+  --mat-sys-corner-extra-large: 0px;
+
+
+  --app-color-primary: var(--mat-sys-primary);
+  --app-color-on-primary: var(--mat-sys-on-primary);
+  --app-color-secondary: var(--mat-sys-secondary);
+  --app-color-tertiary: var(--mat-sys-tertiary);
+  --app-color-background: var(--mat-sys-background);
+  --app-color-surface: var(--mat-sys-surface);
+  --app-color-surface-container: var(--mat-sys-surface-container);
+  --app-color-surface-container-low: var(--mat-sys-surface-container-low);
+  --app-color-surface-container-high: var(--mat-sys-surface-container-high);
+  --app-color-on-surface: var(--mat-sys-on-surface);
+  --app-color-on-surface-variant: var(--mat-sys-on-surface-variant);
+  --app-color-outline: var(--mat-sys-outline);
+  --app-color-outline-variant: var(--mat-sys-outline-variant);
+
+  --app-font-family-body: #{$font-body};
+  --app-font-family-brand: #{$font-brand};
+
+  --app-space-1: 0.25rem;
+  --app-space-2: 0.5rem;
+  --app-space-3: 0.75rem;
+  --app-space-4: 1rem;
+  --app-space-5: 1.5rem;
+  --app-space-6: 2rem;
+  --app-space-7: 3rem;
+  --app-space-8: 4rem;
+
+  --app-radius-sm: var(--mat-sys-corner-small);
+  --app-radius-md: var(--mat-sys-corner-medium);
+  --app-radius-lg: var(--mat-sys-corner-large);
+  --app-radius-xl: var(--mat-sys-corner-extra-large);
+  --app-radius-pill: var(--mat-sys-corner-full);
+
+  --app-button-radius: var(--app-radius-sm);
+  --app-button-padding-x: var(--app-space-5);
+  --app-button-padding-y: var(--app-space-2);
+  --app-button-primary-bg: var(--app-color-primary);
+  --app-button-primary-text: var(--app-color-on-primary);
+  --app-button-primary-border: var(--app-color-primary);
+  --app-button-secondary-text: var(--app-color-on-surface-variant);
+  --app-button-secondary-border: var(--app-color-outline-variant);
+  --app-button-secondary-active-text: var(--app-color-primary);
+  --app-button-secondary-active-border: var(--app-color-primary);
+  --app-button-disabled-text: color-mix(in srgb, var(--app-color-on-surface) 38%, transparent);
+  --app-button-disabled-border: color-mix(in srgb, var(--app-color-outline) 38%, transparent);
+  --app-button-disabled-bg: color-mix(in srgb, var(--app-color-on-surface) 12%, transparent);
+
+  --app-shadow-1: var(--mat-sys-level1);
+  --app-shadow-2: var(--mat-sys-level2);
+  --app-shadow-3: var(--mat-sys-level3);
+
+  --app-motion-duration-medium: 300ms;
+  --app-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  --app-gradient-hero: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--mat-sys-primary) 12%, var(--mat-sys-surface)) 0%,
+    color-mix(in srgb, var(--mat-sys-tertiary) 10%, var(--mat-sys-surface-container-low)) 100%
+  );
+}
+
+@mixin render() {
+  @include mat.core();
+
+  :root {
+    color-scheme: light;
+    @include theme-scope($default-theme);
+  }
+
+  .theme-sunrise {
+    color-scheme: light;
+    @include theme-scope($sunrise-preview-theme);
+  }
+}

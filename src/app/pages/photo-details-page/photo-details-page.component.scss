@@ -1,0 +1,8 @@
+.photo-details-page {
+  display: grid;
+  gap: var(--app-space-5);
+}
+
+.photo-details-page__remove {
+  justify-self: center;
+}

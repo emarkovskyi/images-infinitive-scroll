@@ -1,0 +1,22 @@
+<section class="photo-details-page">
+   @if (image() === null) {
+    <app-loading-label label="Loading photo details..."></app-loading-label>
+  } @else if (image(); as currentImage) {
+    <app-image-card [image]="currentImage"></app-image-card>
+
+    <app-button
+      class="photo-details-page__remove"
+      [disabled]="!isFavorite()"
+      variant="primary"
+      (pressed)="removeFromFavorites()"
+    >
+      Remove from favorites
+    </app-button>
+  } @else {
+    <app-loading-label
+      class="photo-details-page__empty"
+      label="This photo could not be found."
+      mode="empty"
+    ></app-loading-label>
+  }
+</section>

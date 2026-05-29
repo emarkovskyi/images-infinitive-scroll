@@ -1,0 +1,10 @@
+<section class="page">
+  @if (images(); as items) {
+    <app-image-list
+      [images]="items"
+      (imageSelected)="openImage($event)"
+    ></app-image-list>
+  } @else {
+    <app-loading-label label="Loading photos..."></app-loading-label>
+  }
+</section>

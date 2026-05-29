@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding-inline: var(--app-space-5);
+}
+
+.header__switcher {
+  display: flex;
+  gap: var(--app-space-3);
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding-inline: var(--app-space-3);
+  }
+}

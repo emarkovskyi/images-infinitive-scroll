@@ -1,0 +1,12 @@
+.image-card {
+  overflow: hidden;
+  border-radius: var(--app-radius-xl);
+  background: var(--app-color-surface);
+}
+
+.image-card__media {
+  display: block;
+  inline-size: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}

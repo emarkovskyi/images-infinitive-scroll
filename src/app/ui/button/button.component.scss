@@ -1,0 +1,44 @@
+:host {
+  display: inline-flex;
+}
+
+.app-button {
+  border-radius: var(--app-button-radius);
+  padding-inline: var(--app-button-padding-x);
+  padding-block: var(--app-button-padding-y);
+  font-weight: 600;
+}
+
+.app-button--primary.mdc-button {
+  background: var(--app-button-primary-bg);
+  color: var(--app-button-primary-text);
+}
+
+.app-button--secondary.mdc-button {
+  color: var(--app-button-secondary-text);
+  border-color: var(--app-button-secondary-border);
+}
+
+.app-button--secondary.mdc-button:hover {
+  color: var(--app-color-on-surface);
+  border-color: var(--app-color-outline);
+}
+
+.app-button--secondary.app-button--active.mdc-button {
+  color: var(--app-button-secondary-active-text);
+  border-color: var(--app-button-secondary-active-border);
+}
+
+.app-button--primary.mdc-button:disabled,
+.app-button--primary.mdc-button.mat-mdc-button-disabled {
+  background: var(--app-button-disabled-bg);
+  color: var(--app-button-disabled-text);
+}
+
+.app-button--secondary.mdc-button:disabled,
+.app-button--secondary.mdc-button.mat-mdc-button-disabled,
+.app-button--secondary.app-button--active.mdc-button:disabled,
+.app-button--secondary.app-button--active.mdc-button.mat-mdc-button-disabled {
+  color: var(--app-button-disabled-text);
+  border-color: var(--app-button-disabled-border);
+}

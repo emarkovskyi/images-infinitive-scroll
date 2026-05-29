@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/theme' as app-theme;
+
+@include app-theme.render();
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--app-color-background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top, color-mix(in srgb, var(--app-color-primary) 10%, transparent), transparent 28rem),
+    var(--app-color-background);
+  color: var(--app-color-on-surface);
+  font-family: var(--app-font-family-body);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}

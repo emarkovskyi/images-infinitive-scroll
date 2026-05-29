@@ -1,0 +1,42 @@
+.image-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: var(--app-space-4);
+}
+
+.image-list__item {
+  display: grid;
+  gap: var(--app-space-3);
+}
+
+.image-list__button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: inherit;
+}
+
+.image-list__button:focus-visible {
+  outline: 3px solid var(--app-color-primary);
+  outline-offset: 4px;
+  border-radius: var(--app-radius-xl);
+}
+
+.image-list__copy {
+  display: grid;
+  gap: var(--app-space-2);
+}
+
+.image-list__title {
+  margin: 0;
+  color: var(--app-color-on-surface);
+  font-family: var(--app-font-family-brand);
+  font-size: 1.2rem;
+}
+
+.image-list__description {
+  margin: 0;
+  color: var(--app-color-on-surface-variant);
+  line-height: 1.55;
+}
