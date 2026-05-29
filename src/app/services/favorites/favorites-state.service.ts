@@ -1,7 +1,7 @@
 import { Injectable, computed, signal } from '@angular/core';
 import { FavoritesState } from './favorites-state.interface';
 
-const FAVORITES_STORAGE_KEY = 'images-virtual-scroll.favorites';
+const FAVORITES_STORAGE_KEY = 'images-infinitive-scroll.favorites';
 
 function isStringArray(value: unknown): value is string[] {
   return Array.isArray(value) && value.every((item) => typeof item === 'string');

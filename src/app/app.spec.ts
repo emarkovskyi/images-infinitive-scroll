@@ -13,7 +13,7 @@ import { FavoritesState } from './services/favorites/favorites-state.interface';
 import { FAVORITES_STATE } from './services/favorites/favorites-state.token';
 import { IMAGES_SERVICE } from './services/image-provider/images-service.token';
 
-const FAVORITES_STORAGE_KEY = 'images-virtual-scroll.favorites';
+const FAVORITES_STORAGE_KEY = 'images-infinitive-scroll.favorites';
 
 class MockIntersectionObserver {
   readonly observe = vi.fn();

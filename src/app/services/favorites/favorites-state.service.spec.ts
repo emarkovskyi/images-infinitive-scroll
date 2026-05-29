@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { FAVORITES_STATE } from './favorites-state.token';
 import { FavoritesStateService } from './favorites-state.service';
 
-const FAVORITES_STORAGE_KEY = 'images-virtual-scroll.favorites';
+const FAVORITES_STORAGE_KEY = 'images-infinitive-scroll.favorites';
 
 describe('FavoritesStateService', () => {
   beforeEach(() => {
