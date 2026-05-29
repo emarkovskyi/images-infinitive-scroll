@@ -9,13 +9,14 @@
 }
 
 html {
-  min-height: 100%;
+  block-size: 100%;
   background: var(--app-color-background);
 }
 
 body {
-  min-height: 100vh;
+  block-size: 100%;
   margin: 0;
+  overflow: hidden;
   background:
     radial-gradient(circle at top, color-mix(in srgb, var(--app-color-primary) 10%, transparent), transparent 28rem),
     var(--app-color-background);

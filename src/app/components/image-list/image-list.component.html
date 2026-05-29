@@ -1,8 +1,10 @@
 @if (images().length) {
   <div class="image-list">
-    @for (image of images(); track image.id) {
-      <article class="image-list__item">
+    @for (image of images(); track image.id; let last = $last) {
+      <div class="image-list__item">
         <button
+          viewportEnter
+          (viewPortEntered)="onEnterViewport(last)"
           type="button"
           class="image-list__button"
           (click)="selectImage(image.id)"
@@ -10,7 +12,7 @@
         >
           <app-image-card [image]="image"></app-image-card>
         </button>
-      </article>
+      </div>
     }
   </div>
 } @else {

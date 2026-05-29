@@ -1,15 +1,19 @@
 :host {
   display: block;
+  block-size: 100%;
 }
 
 .app-shell {
   display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
   gap: var(--app-space-6);
+  block-size: 100dvh;
   padding: var(--app-space-6);
 }
 
 .app-shell__content {
-  min-block-size: 24rem;
+  min-block-size: 0;
+  overflow: hidden;
 }
 
 @media (max-width: 640px) {

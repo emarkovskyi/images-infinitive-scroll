@@ -1,20 +1,10 @@
-<section class="page favorites-page">
-  <div class="page__intro">
-    <p class="page__eyebrow">Favorites</p>
-    <h2 class="page__title">Keep a lightweight subset of images close by.</h2>
-    <p class="page__description">
-      Favorites live in app state only for this first version, so this route is always derived from
-      the current in-memory selection.
-    </p>
-  </div>
+@if (favoriteImages(); as items) {
+  <app-image-list
+    [emptyLabel]="'No favorites yet. Add a few from the Photos tab.'"
+    [images]="items"
+    (imageSelected)="openImage($event)"
+  ></app-image-list>
 
-  @if (favoriteImages(); as items) {
-    <app-image-list
-      [emptyLabel]="'No favorites yet. Add a few from the Photos tab.'"
-      [images]="items"
-      (imageSelected)="openImage($event)"
-    ></app-image-list>
-  } @else {
-    <app-loading-label label="Loading favorite candidates..."></app-loading-label>
-  }
-</section>
+} @else {
+  <app-loading-label label="Loading favorite candidates..."></app-loading-label>
+}

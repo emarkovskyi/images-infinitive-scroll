@@ -1,17 +1,19 @@
-<section class="photo-details-page">
+
    @if (image() === null) {
     <app-loading-label label="Loading photo details..."></app-loading-label>
   } @else if (image(); as currentImage) {
-    <app-image-card [image]="currentImage"></app-image-card>
+    <app-image-card class="photo-details-page__image" [image]="currentImage"></app-image-card>
 
-    <app-button
-      class="photo-details-page__remove"
-      [disabled]="!isFavorite()"
-      variant="primary"
-      (pressed)="removeFromFavorites()"
-    >
-      Remove from favorites
-    </app-button>
+    <div class="photo-details-page__actions">
+      <app-button
+        class="photo-details-page__remove"
+        [disabled]="!isFavorite()"
+        variant="primary"
+        (pressed)="removeFromFavorites()"
+      >
+        Remove from favorites
+      </app-button>
+    </div>
   } @else {
     <app-loading-label
       class="photo-details-page__empty"
@@ -19,4 +21,4 @@
       mode="empty"
     ></app-loading-label>
   }
-</section>
+

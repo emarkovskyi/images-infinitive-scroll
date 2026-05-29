@@ -1,5 +1,13 @@
+:host {
+  display: grid;
+  block-size: 100%;
+  min-block-size: 0;
+}
+
 .image-list {
   display: grid;
+  min-block-size: 0;
+  overflow-y: auto;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   gap: var(--app-space-4);
 }

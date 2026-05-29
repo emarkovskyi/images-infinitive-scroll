@@ -1,6 +1,18 @@
-.photo-details-page {
+:host {
   display: grid;
+  block-size: 100%;
   gap: var(--app-space-5);
+  align-content: start;
+}
+
+.photo-details-page__image {
+  min-block-size: 0;
+  overflow-y: hidden;
+}
+
+.photo-details-page__actions {
+  display: grid;
+  justify-items: center;
 }
 
 .photo-details-page__remove {

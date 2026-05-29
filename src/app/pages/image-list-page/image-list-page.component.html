@@ -1,10 +1,17 @@
-<section class="page">
-  @if (images(); as items) {
-    <app-image-list
-      [images]="items"
-      (imageSelected)="openImage($event)"
-    ></app-image-list>
-  } @else {
-    <app-loading-label label="Loading photos..."></app-loading-label>
+@if (isLoadingInitial()) {
+  <app-loading-label label="Loading photos..."></app-loading-label>
+} @else if (loadError() && !items().length) {
+  <app-loading-label [label]="loadError() ?? 'Could not load photos.'" mode="error"></app-loading-label>
+} @else {
+  <app-image-list
+    [images]="items()"
+    (imageSelected)="openImage($event)"
+    (loadMoreRequested)="loadMore()"
+  ></app-image-list>
+
+  @if (isLoadingMore()) {
+    <app-loading-label class="image-list-page__loading" label="Loading more photos..."></app-loading-label>
+  } @else if (loadError()) {
+    <app-loading-label [label]="loadError() ?? 'Could not load more photos.'" mode="error"></app-loading-label>
   }
-</section>
+}

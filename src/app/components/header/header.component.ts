@@ -4,7 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { filter, map, startWith } from 'rxjs';
 import { ButtonComponent } from '../../ui/button/button.component';
 
-type HeaderView = 'photos' | 'favorites';
+type HeaderView = 'photos' | 'favorites' | '';
 
 @Component({
   selector: 'app-header',
@@ -26,7 +26,11 @@ export class HeaderComponent {
   );
 
   protected readonly activeView = computed<HeaderView>(() =>
-    this.currentUrl().startsWith('/favorites') ? 'favorites' : 'photos',
+    this.currentUrl().startsWith('/favorites')
+      ? 'favorites'
+      : !this.currentUrl().startsWith('/photos')
+        ? 'photos'
+        : '',
   );
 
   protected goToPhotos(): void {

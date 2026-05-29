@@ -1,7 +1,7 @@
 @use '@angular/material' as mat;
 
-$font-body: 'Inter, "Segoe UI", sans-serif';
-$font-brand: '"Space Grotesk", Inter, "Segoe UI", sans-serif';
+$font-body: 'Roboto, Helvetica, Arial, sans-serif';
+$font-brand: 'Poppins, Inter, "Segoe UI", sans-serif';
 
 $default-theme: mat.define-theme((
   color: (

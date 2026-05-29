@@ -3,7 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map, switchMap } from 'rxjs';
 import { ImageCardComponent } from '../../components/image-card/image-card.component';
-import { FavoritesStateService } from '../../services/favorites/favorites-state.service';
+import { FAVORITES_STATE } from '../../services/favorites/favorites-state.token';
 import { IMAGES_SERVICE } from '../../services/image-provider/images-service.token';
 import { ButtonComponent } from '../../ui/button/button.component';
 import { LoadingLabelComponent } from '../../ui/loading-label/loading-label.component';
@@ -18,7 +18,7 @@ import { LoadingLabelComponent } from '../../ui/loading-label/loading-label.comp
 export class PhotoDetailsPageComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly imagesService = inject(IMAGES_SERVICE);
-  private readonly favoritesState = inject(FavoritesStateService);
+  private readonly favoritesState = inject(FAVORITES_STATE);
 
   private readonly imageId = toSignal(
     this.route.paramMap.pipe(map((params) => params.get('id'))),
