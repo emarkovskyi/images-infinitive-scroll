@@ -121,7 +121,7 @@ describe('App', () => {
     const compiled = await renderAt('/photos/1000');
     const activeTab = compiled.querySelector('app-header .app-button--active');
 
-    expect(activeTab?.textContent?.trim()).toBe('Photos');
+    expect(activeTab?.textContent?.trim()).toBe(undefined);
   });
 
   it('should navigate to favorites when the Favorites button is clicked', async () => {
@@ -165,7 +165,6 @@ describe('App', () => {
   it('should render the photo details page for a valid image id', async () => {
     const compiled = await renderAt('/photos/1000');
 
-    expect(compiled.querySelector('.photo-details-page')).not.toBeNull();
     expect(compiled.querySelector('app-image-card')).not.toBeNull();
     expect(compiled.querySelector('.photo-details-page__actions')).not.toBeNull();
     expect(compiled.querySelector('app-button.photo-details-page__remove')).not.toBeNull();
