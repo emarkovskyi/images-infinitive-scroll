@@ -10,7 +10,7 @@ import { LoadingLabelComponent } from '../../ui/loading-label/loading-label.comp
 
 @Component({
   selector: 'app-photo-details-page',
-  imports: [ImageCardComponent, LoadingLabelComponent, ButtonComponent],
+  imports: [LoadingLabelComponent, ButtonComponent],
   templateUrl: './photo-details-page.component.html',
   styleUrl: './photo-details-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

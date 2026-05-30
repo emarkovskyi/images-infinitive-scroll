@@ -165,7 +165,7 @@ describe('App', () => {
   it('should render the photo details page for a valid image id', async () => {
     const compiled = await renderAt('/photos/1000');
 
-    expect(compiled.querySelector('app-image-card')).not.toBeNull();
+    expect(compiled.querySelector('img')).not.toBeNull();
     expect(compiled.querySelector('.photo-details-page__actions')).not.toBeNull();
     expect(compiled.querySelector('app-button.photo-details-page__remove')).not.toBeNull();
     expect(
@@ -217,6 +217,6 @@ describe('App', () => {
     expect(router.url).toBe('/photos/1000');
     expect(favoritesState.isFavorite('1000')).toBe(false);
     expect(localStorage.getItem(FAVORITES_STORAGE_KEY)).toBe(JSON.stringify([]));
-    expect(fixture.nativeElement.querySelector('app-image-card')).not.toBeNull();
+    expect(fixture.nativeElement.querySelector('img')).not.toBeNull();
   });
 });

@@ -5,9 +5,20 @@
   align-content: start;
 }
 
+.photo-details-page__image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  overflow: hidden;
+}
+
 .photo-details-page__image {
   min-block-size: 0;
   overflow-y: hidden;
+  @media (max-width: 640px) {
+    inline-size: 100%;
+  }
 }
 
 .photo-details-page__actions {

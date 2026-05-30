@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { By } from '@angular/platform-browser';
-import { delay, Observable, of } from 'rxjs';
+import { delay, mergeMap, Observable, of, throwError, timer } from 'rxjs';
 import { ImageListComponent } from '../../components/image-list/image-list.component';
 import { FavoritesStateService } from '../../services/favorites/favorites-state.service';
 import { FAVORITES_STATE } from '../../services/favorites/favorites-state.token';
@@ -84,6 +84,10 @@ describe('ImageListPageComponent', () => {
     fixture.detectChanges();
   }
 
+  function delayedError(message = 'Request failed'): Observable<never> {
+    return timer(100).pipe(mergeMap(() => throwError(() => new Error(message))));
+  }
+
   it('should load the first page on init', async () => {
     const fixture = TestBed.createComponent(ImageListPageComponent);
     fixture.detectChanges();
@@ -118,5 +122,39 @@ describe('ImageListPageComponent', () => {
     fixture.detectChanges();
 
     expect(service.listImages).toHaveBeenCalledTimes(2);
+  });
+
+  it('should render an error state when the initial load fails', async () => {
+    service.listImages.mockReturnValueOnce(delayedError());
+
+    const fixture = TestBed.createComponent(ImageListPageComponent);
+    fixture.detectChanges();
+
+    await flushRequest(fixture);
+
+    expect(service.listImages).toHaveBeenCalledTimes(1);
+    expect(fixture.nativeElement.querySelectorAll('.image-list__button').length).toBe(0);
+    expect(fixture.nativeElement.textContent).toContain('Could not load photos.');
+  });
+
+  it('should preserve loaded items and show an incremental error when load more fails', async () => {
+    const fixture = TestBed.createComponent(ImageListPageComponent);
+    fixture.detectChanges();
+
+    await flushRequest(fixture);
+
+    service.listImages.mockReturnValueOnce(delayedError('Load more failed'));
+
+    const imageList = fixture.debugElement.query(By.directive(ImageListComponent))
+      .componentInstance as ImageListComponent;
+
+    imageList.loadMoreRequested.emit();
+    fixture.detectChanges();
+
+    await flushRequest(fixture);
+
+    expect(service.listImages).toHaveBeenCalledTimes(2);
+    expect(fixture.nativeElement.querySelectorAll('.image-list__button').length).toBe(20);
+    expect(fixture.nativeElement.textContent).toContain('Could not load more photos.');
   });
 });

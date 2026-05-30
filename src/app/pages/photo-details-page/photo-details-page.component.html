@@ -5,7 +5,9 @@
       i18n-label="@@photoDetailsPage.loading"
     ></app-loading-label>
   } @else if (image(); as currentImage) {
-    <app-image-card class="photo-details-page__image" [image]="currentImage"></app-image-card>
+     <div class="photo-details-page__image-wrapper">
+      <img [alt]="currentImage.title" [src]="currentImage.url" class="photo-details-page__image" />
+     </div>
 
     <div class="photo-details-page__actions">
       <app-button
