@@ -1,10 +1,14 @@
 @if (favoriteImages(); as items) {
   <app-image-list
-    [emptyLabel]="'No favorites yet. Add a few from the Photos tab.'"
+    emptyLabel="No favorites yet. Add a few from the Photos tab."
+    i18n-emptyLabel="@@favoritesPage.emptyLabel"
     [images]="items"
     (imageSelected)="openImage($event)"
   ></app-image-list>
 
 } @else {
-  <app-loading-label label="Loading favorite candidates..."></app-loading-label>
+  <app-loading-label
+    label="Loading favorite candidates..."
+    i18n-label="@@favoritesPage.loadingCandidates"
+  ></app-loading-label>
 }

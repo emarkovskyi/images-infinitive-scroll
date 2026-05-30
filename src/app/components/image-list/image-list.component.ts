@@ -13,9 +13,13 @@ import { ViewportEnterDirective } from '../../ui/viewport-enter/viewport-enter.d
 })
 export class ImageListComponent {
   readonly images = input.required<ImageItem[]>();
-  readonly emptyLabel = input('No images available right now.');
+  readonly emptyLabel = input($localize`:@@imageList.emptyLabel:No images available right now.`);
   readonly imageSelected = output<string>();
   readonly loadMoreRequested = output<void>();
+
+  protected openImageAriaLabel(title: string): string {
+    return $localize`:@@imageList.openImage:Open ${title}:title:`;
+  }
 
   protected selectImage(imageId: string): void {
     this.imageSelected.emit(imageId);

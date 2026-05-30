@@ -7,6 +7,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoadingLabelComponent {
-  readonly label = input('Loading content...');
+  readonly label = input($localize`:@@loadingLabel.defaultText:Loading content...`);
   readonly mode = input<'loading' | 'empty' | 'error'>('loading');
 }

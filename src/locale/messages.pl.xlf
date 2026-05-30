@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" target-language="pl" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="loadingLabel.badge.empty" datatype="html">
+        <source>empty</source>
+        <target>pusto</target>
+      </trans-unit>
+      <trans-unit id="loadingLabel.badge.error" datatype="html">
+        <source>error</source>
+        <target>błąd</target>
+      </trans-unit>
+      <trans-unit id="loadingLabel.badge.loading" datatype="html">
+        <source>loading</source>
+        <target>ładowanie</target>
+      </trans-unit>
+      <trans-unit id="favoritesPage.emptyLabel" datatype="html">
+        <source>No favorites yet. Add a few from the Photos tab.</source>
+        <target>Nie masz jeszcze ulubionych. Dodaj kilka ze strony Zdjęcia.</target>
+      </trans-unit>
+      <trans-unit id="favoritesPage.loadingCandidates" datatype="html">
+        <source>Loading favorite candidates...</source>
+        <target>Ładowanie kandydatów do ulubionych...</target>
+      </trans-unit>
+      <trans-unit id="imageListPage.loading" datatype="html">
+        <source>Loading photos...</source>
+        <target>Ładowanie zdjęć...</target>
+      </trans-unit>
+      <trans-unit id="imageListPage.loadingMore" datatype="html">
+        <source>Loading more photos...</source>
+        <target>Ładowanie kolejnych zdjęć...</target>
+      </trans-unit>
+      <trans-unit id="photoDetailsPage.loading" datatype="html">
+        <source>Loading photo details...</source>
+        <target>Ładowanie szczegółów zdjęcia...</target>
+      </trans-unit>
+      <trans-unit id="photoDetailsPage.removeFromFavorites" datatype="html">
+        <source>Remove from favorites</source>
+        <target>Usuń z ulubionych</target>
+      </trans-unit>
+      <trans-unit id="photoDetailsPage.notFound" datatype="html">
+        <source>This photo could not be found.</source>
+        <target>Nie udało się znaleźć tego zdjęcia.</target>
+      </trans-unit>
+      <trans-unit id="header.photos" datatype="html">
+        <source>Photos</source>
+        <target>Zdjęcia</target>
+      </trans-unit>
+      <trans-unit id="header.favorites" datatype="html">
+        <source>Favorites</source>
+        <target>Ulubione</target>
+      </trans-unit>
+      <trans-unit id="header.librarySections" datatype="html">
+        <source>Library sections</source>
+        <target>Sekcje biblioteki</target>
+      </trans-unit>
+      <trans-unit id="documentTitle" datatype="html">
+        <source>Images Virtual Scroll</source>
+        <target>Przewijanie zdjęć</target>
+      </trans-unit>
+      <trans-unit id="imageList.emptyLabel" datatype="plaintext">
+        <source>No images available right now.</source>
+        <target>Brak dostępnych zdjęć.</target>
+      </trans-unit>
+      <trans-unit id="imageList.openImage" datatype="plaintext">
+        <source>Open <x id="title"/></source>
+        <target>Otwórz <x id="title"/></target>
+      </trans-unit>
+      <trans-unit id="imageListPage.loadError" datatype="plaintext">
+        <source>Could not load photos.</source>
+        <target>Nie udało się załadować zdjęć.</target>
+      </trans-unit>
+      <trans-unit id="imageListPage.loadMoreError" datatype="plaintext">
+        <source>Could not load more photos.</source>
+        <target>Nie udało się załadować kolejnych zdjęć.</target>
+      </trans-unit>
+      <trans-unit id="loadingLabel.defaultText" datatype="plaintext">
+        <source>Loading content...</source>
+        <target>Ładowanie zawartości...</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

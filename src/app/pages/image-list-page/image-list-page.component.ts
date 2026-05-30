@@ -85,7 +85,9 @@ export class ImageListPageComponent {
         },
         error: () => {
           this.loadError.set(
-            options.append ? 'Could not load more photos.' : 'Could not load photos.',
+            options.append
+              ? $localize`:@@imageListPage.loadMoreError:Could not load more photos.`
+              : $localize`:@@imageListPage.loadError:Could not load photos.`,
           );
           this.isLoadingInitial.set(false);
           this.isLoadingMore.set(false);

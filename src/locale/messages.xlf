@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="loadingLabel.badge.empty" datatype="html">
+        <source>empty</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ui/loading-label/loading-label.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loadingLabel.badge.error" datatype="html">
+        <source>error</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ui/loading-label/loading-label.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loadingLabel.badge.loading" datatype="html">
+        <source>loading</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ui/loading-label/loading-label.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="favoritesPage.emptyLabel" datatype="html">
+        <source>No favorites yet. Add a few from the Photos tab.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/favorites-page/favorites-page.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="favoritesPage.loadingCandidates" datatype="html">
+        <source>Loading favorite candidates...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/favorites-page/favorites-page.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="imageListPage.loading" datatype="html">
+        <source>Loading photos...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/image-list-page/image-list-page.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="imageListPage.loadingMore" datatype="html">
+        <source>Loading more photos...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/image-list-page/image-list-page.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="photoDetailsPage.loading" datatype="html">
+        <source>Loading photo details...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/photo-details-page/photo-details-page.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="photoDetailsPage.removeFromFavorites" datatype="html">
+        <source>Remove from favorites</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/photo-details-page/photo-details-page.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="photoDetailsPage.notFound" datatype="html">
+        <source>This photo could not be found.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/photo-details-page/photo-details-page.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.photos" datatype="html">
+        <source>Photos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.favorites" datatype="html">
+        <source>Favorites</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.librarySections" datatype="html">
+        <source>Library sections</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documentTitle" datatype="html">
+        <source>Images Infinitive Scroll</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/index.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="imageList.emptyLabel" datatype="plaintext">
+        <source>No images available right now.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/image-list/image-list.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="imageList.openImage" datatype="plaintext">
+        <source>Open <x id="title"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/image-list/image-list.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="imageListPage.loadError" datatype="plaintext">
+        <source>Could not load photos.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/image-list-page/image-list-page.component.ts</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="imageListPage.loadMoreError" datatype="plaintext">
+        <source>Could not load more photos.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/image-list-page/image-list-page.component.ts</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loadingLabel.defaultText" datatype="plaintext">
+        <source>Loading content...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ui/loading-label/loading-label.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

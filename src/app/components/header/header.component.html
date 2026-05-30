@@ -1,11 +1,15 @@
 <header class="header">
-  <div aria-label="Library sections" class="header__switcher">
+  <div
+    aria-label="Library sections"
+    i18n-aria-label="@@header.librarySections"
+    class="header__switcher"
+  >
     <app-button
       [active]="activeView() === 'photos'"
       variant="secondary"
       (pressed)="goToPhotos()"
     >
-      Photos
+      <ng-container i18n="@@header.photos">Photos</ng-container>
     </app-button>
 
     <app-button
@@ -13,7 +17,7 @@
       variant="secondary"
       (pressed)="goToFavorites()"
     >
-      Favorites
+      <ng-container i18n="@@header.favorites">Favorites</ng-container>
     </app-button>
   </div>
 </header>

@@ -4,7 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:pl": "ng serve --configuration pl",
     "build": "ng build",
+    "build:pl": "ng build --configuration pl",
+    "extract-i18n": "ng extract-i18n --output-path src/locale",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -17,6 +20,7 @@
     "@angular/compiler": "^21.2.0",
     "@angular/core": "^21.2.0",
     "@angular/forms": "^21.2.0",
+    "@angular/localize": "^21.2.15",
     "@angular/material": "^21.2.13",
     "@angular/platform-browser": "^21.2.0",
     "@angular/router": "^21.2.0",

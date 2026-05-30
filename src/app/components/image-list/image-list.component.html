@@ -8,7 +8,7 @@
           type="button"
           class="image-list__button"
           (click)="selectImage(image.id)"
-          [attr.aria-label]="'Open ' + image.title"
+          [attr.aria-label]="openImageAriaLabel(image.title)"
         >
           <app-image-card [image]="image"></app-image-card>
         </button>
