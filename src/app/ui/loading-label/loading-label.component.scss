@@ -1,8 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .loading-label {
   display: grid;
   gap: var(--app-space-2);
   padding: var(--app-space-5);
-  border: 1px dashed var(--app-color-outline);
+  border: 1px solid var(--app-color-outline);
   border-radius: var(--app-radius-pill);
   background: var(--app-color-surface-container-low);
   text-align: center;

@@ -60,7 +60,9 @@ $sunrise-preview-theme: mat.define-theme((
   --mat-sys-corner-medium: 0px;
   --mat-sys-corner-large: 0px;
   --mat-sys-corner-extra-large: 0px;
-
+  --mat-sys-surface-container: #6F947A;
+  --mat-sys-surface-container-low: #CCE197;
+  --mat-sys-primary: #004A2D;
 
   --app-color-primary: var(--mat-sys-primary);
   --app-color-on-primary: var(--mat-sys-on-primary);

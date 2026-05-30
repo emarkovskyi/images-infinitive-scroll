@@ -1,16 +1,18 @@
 :host {
   display: block;
+  border: 1px solid var(--app-color-outline);
+  border-radius: var(--app-radius-mdl);
+  padding: var(--app-space-5);
 }
 
 .header {
   display: flex;
   justify-content: center;
-  padding-inline: var(--app-space-5);
 }
 
 .header__switcher {
   display: flex;
-  gap: var(--app-space-3);
+  gap: var(--app-space-8);
   align-items: center;
 }
 
