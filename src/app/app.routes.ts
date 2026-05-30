@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
-import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { ImageListPageComponent } from './pages/image-list-page/image-list-page.component';
-import { PhotoDetailsPageComponent } from './pages/photo-details-page/photo-details-page.component';
 
 export const routes: Routes = [
   {
@@ -10,11 +8,17 @@ export const routes: Routes = [
   },
   {
     path: 'photos/:id',
-    component: PhotoDetailsPageComponent,
+    loadComponent: () =>
+      import('./pages/photo-details-page/photo-details-page.component').then(
+        (module) => module.PhotoDetailsPageComponent,
+      ),
   },
   {
     path: 'favorites',
-    component: FavoritesPageComponent,
+    loadComponent: () =>
+      import('./pages/favorites-page/favorites-page.component').then(
+        (module) => module.FavoritesPageComponent,
+      ),
   },
   {
     path: '**',
