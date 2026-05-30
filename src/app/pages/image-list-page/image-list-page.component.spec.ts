@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 import { By } from '@angular/platform-browser';
 import { delay, mergeMap, Observable, of, throwError, timer } from 'rxjs';
 import { ImageListComponent } from '../../components/image-list/image-list.component';
+import { FavoritesState } from '../../services/favorites/favorites-state.interface';
 import { FavoritesStateService } from '../../services/favorites/favorites-state.service';
 import { FAVORITES_STATE } from '../../services/favorites/favorites-state.token';
 import { ImageItem } from '../../services/image-provider/image-item.interface';
@@ -53,6 +54,7 @@ class FakeImagesService implements ImagesService {
 describe('ImageListPageComponent', () => {
   const originalIntersectionObserver = globalThis.IntersectionObserver;
   let service: FakeImagesService;
+  let favoritesState: FavoritesState;
 
   beforeEach(() => {
     vi.useFakeTimers();
@@ -75,6 +77,8 @@ describe('ImageListPageComponent', () => {
         { provide: IMAGES_SERVICE, useValue: service },
       ],
     }).compileComponents();
+
+    favoritesState = TestBed.inject(FAVORITES_STATE);
   });
 
   async function flushRequest(fixture: ComponentFixture<ImageListPageComponent>) {
@@ -156,5 +160,23 @@ describe('ImageListPageComponent', () => {
     expect(service.listImages).toHaveBeenCalledTimes(2);
     expect(fixture.nativeElement.querySelectorAll('.image-list__button').length).toBe(20);
     expect(fixture.nativeElement.textContent).toContain('Could not load more photos.');
+  });
+
+  it('should add a clicked image to favorites without navigating or duplicating ids', async () => {
+    const fixture = TestBed.createComponent(ImageListPageComponent);
+    fixture.detectChanges();
+
+    await flushRequest(fixture);
+
+    const firstButton = fixture.nativeElement.querySelector('.image-list__button') as
+      | HTMLButtonElement
+      | null;
+
+    firstButton?.click();
+    firstButton?.click();
+    fixture.detectChanges();
+
+    expect(favoritesState.isFavorite('image-1')).toBe(true);
+    expect(favoritesState.getFavoriteIds()).toEqual(['image-1']);
   });
 });

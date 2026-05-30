@@ -2,16 +2,27 @@
   <div class="image-list">
     @for (image of images(); track image.id; let last = $last) {
       <div class="image-list__item">
-        <button
-          viewportEnter
-          (viewPortEntered)="onEnterViewport(last)"
-          type="button"
-          class="image-list__button"
-          (click)="selectImage(image.id)"
-          [attr.aria-label]="openImageAriaLabel(image.title)"
-        >
-          <app-image-card [image]="image"></app-image-card>
-        </button>
+        @if (infiniteScroll()) {
+          <button
+            viewportEnter
+            (viewPortEntered)="onEnterViewport(last)"
+            type="button"
+            class="image-list__button"
+            (click)="selectImage(image.id)"
+            [attr.aria-label]="openImageAriaLabel(image.title)"
+          >
+            <app-image-card [image]="image"></app-image-card>
+          </button>
+        } @else {
+          <button
+            type="button"
+            class="image-list__button"
+            (click)="selectImage(image.id)"
+            [attr.aria-label]="openImageAriaLabel(image.title)"
+          >
+            <app-image-card [image]="image"></app-image-card>
+          </button>
+        }
       </div>
     }
   </div>

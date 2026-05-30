@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
-import { Router } from '@angular/router';
 import { IMAGES_SERVICE } from '../../services/image-provider/images-service.token';
 import { FAVORITES_STATE } from '../../services/favorites/favorites-state.token';
 import { LoadingLabelComponent } from '../../ui/loading-label/loading-label.component';
@@ -26,7 +25,6 @@ interface PageRequest {
 export class ImageListPageComponent {
   private readonly imagesService = inject(IMAGES_SERVICE);
   private readonly favoritesState = inject(FAVORITES_STATE);
-  private readonly router = inject(Router);
 
   private readonly pageInfo = signal<PageInfo>({
     nextCursor: null,
@@ -83,7 +81,6 @@ export class ImageListPageComponent {
 
   protected openImage(imageId: string): void {
     this.favoritesState.add(imageId);
-    void this.router.navigate(['/photos', imageId]);
   }
 
   protected loadMore(): void {

@@ -4,10 +4,14 @@ import { ImageItem } from '../../services/image-provider/image-item.interface';
 import { ImageListComponent } from './image-list.component';
 
 class MockIntersectionObserver {
+  static instances: MockIntersectionObserver[] = [];
+
   readonly observe = vi.fn();
   readonly disconnect = vi.fn();
 
-  constructor(public readonly callback: IntersectionObserverCallback) {}
+  constructor(public readonly callback: IntersectionObserverCallback) {
+    MockIntersectionObserver.instances.push(this);
+  }
 }
 
 const TEST_IMAGES: ImageItem[] = [
@@ -24,6 +28,7 @@ const TEST_IMAGES: ImageItem[] = [
   template: `
     <app-image-list
       [images]="images"
+      [infiniteScroll]="infiniteScroll"
       (imageSelected)="lastSelected = $event"
       (loadMoreRequested)="loadMoreCount = loadMoreCount + 1"
     ></app-image-list>
@@ -31,6 +36,7 @@ const TEST_IMAGES: ImageItem[] = [
 })
 class TestHostComponent {
   images = TEST_IMAGES;
+  infiniteScroll = false;
   lastSelected = '';
   loadMoreCount = 0;
 }
@@ -39,6 +45,7 @@ describe('ImageListComponent', () => {
   const originalIntersectionObserver = globalThis.IntersectionObserver;
 
   beforeEach(() => {
+    MockIntersectionObserver.instances = [];
     globalThis.IntersectionObserver = MockIntersectionObserver as unknown as typeof IntersectionObserver;
   });
 
@@ -71,8 +78,22 @@ describe('ImageListComponent', () => {
     expect(fixture.componentInstance.lastSelected).toBe('image-a');
   });
 
+  it('should not attach viewport observers or emit load-more in default mode', async () => {
+    const fixture = TestBed.createComponent(TestHostComponent);
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const imageListComponent = fixture.debugElement.children[0].componentInstance as ImageListComponent;
+
+    imageListComponent['onEnterViewport'](true);
+
+    expect(MockIntersectionObserver.instances).toHaveLength(0);
+    expect(fixture.componentInstance.loadMoreCount).toBe(0);
+  });
+
   it('should request more items only when the last image enters the viewport', async () => {
     const fixture = TestBed.createComponent(TestHostComponent);
+    fixture.componentInstance.infiniteScroll = true;
     fixture.detectChanges();
     await fixture.whenStable();
 

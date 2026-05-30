@@ -13,6 +13,7 @@ import { ViewportEnterDirective } from '../../ui/viewport-enter/viewport-enter.d
 })
 export class ImageListComponent {
   readonly images = input.required<ImageItem[]>();
+  readonly infiniteScroll = input(false);
   readonly emptyLabel = input($localize`:@@imageList.emptyLabel:No images available right now.`);
   readonly imageSelected = output<string>();
   readonly loadMoreRequested = output<void>();
@@ -26,7 +27,7 @@ export class ImageListComponent {
   }
 
   protected onEnterViewport(isLast: boolean): void {
-    if (isLast) {
+    if (this.infiniteScroll() && isLast) {
       this.loadMoreRequested.emit();
     }
   }

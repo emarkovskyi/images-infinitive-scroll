@@ -5,6 +5,7 @@
 } @else {
   <app-image-list
     [images]="items()"
+    [infiniteScroll]="true"
     (imageSelected)="openImage($event)"
     (loadMoreRequested)="loadMore()"
   ></app-image-list>

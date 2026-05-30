@@ -146,7 +146,7 @@ describe('App', () => {
     expect(compiled.querySelectorAll('.image-list__item').length).toBe(20);
   });
 
-  it('should add a clicked photo to favorites and navigate to details from /', async () => {
+  it('should add a clicked photo to favorites and stay on /', async () => {
     const fixture = TestBed.createComponent(App);
     await router.navigateByUrl('/');
     fixture.detectChanges();
@@ -158,7 +158,7 @@ describe('App', () => {
     await fixture.whenStable();
     fixture.detectChanges();
 
-    expect(router.url).toBe('/photos/1000');
+    expect(router.url).toBe('/');
     expect(favoritesState.isFavorite('1000')).toBe(true);
   });
 

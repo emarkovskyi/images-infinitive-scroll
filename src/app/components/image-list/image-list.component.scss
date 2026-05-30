@@ -22,17 +22,37 @@
 }
 
 .image-list__button {
+  display: block;
+  inline-size: 100%;
   padding: 0;
   border: 0;
   background: transparent;
   cursor: pointer;
   text-align: inherit;
+  border-radius: var(--app-radius-xl);
+  transition:
+    transform var(--app-motion-duration-medium) var(--app-motion-easing-standard),
+    box-shadow var(--app-motion-duration-medium) var(--app-motion-easing-standard),
+    filter var(--app-motion-duration-medium) var(--app-motion-easing-standard);
+}
+
+.image-list__button:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--app-shadow-2);
+  filter: saturate(1.04) brightness(1.01);
+}
+
+.image-list__button:active {
+  transform: translateY(-1px) scale(0.995);
+  box-shadow: var(--app-shadow-1);
+  filter: saturate(1.02);
 }
 
 .image-list__button:focus-visible {
   outline: 3px solid var(--app-color-primary);
   outline-offset: 4px;
   border-radius: var(--app-radius-xl);
+  box-shadow: var(--app-shadow-2);
 }
 
 .image-list__copy {
